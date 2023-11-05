@@ -24,7 +24,7 @@ int main(int argc, char **argv, char **env) {
   // initialize simulation input 
   top->clk = 1;
   top->rst = 1;
-  top->en = 0; // init not enabled, so rotary doesn't do anything
+  top->en = 0; // init not enabled, so rotary button doesn't do anything
   top->data_out = 0;
 
   for (simcyc=0; simcyc<MAX_SIM_CYC; simcyc++) {
@@ -35,7 +35,7 @@ int main(int argc, char **argv, char **env) {
       top->eval ();
     }
 
-    top->rst = 0; // Added line to to set to 0 to start counter
+    top->rst = 0; // Added line to set to 0 to start counter
     top->en = vbdFlag();
     vbdHex(2, (top->data_out >> 4) & 0xF); // Added line to display two digits
     vbdHex(1, top->data_out & 0xF);
