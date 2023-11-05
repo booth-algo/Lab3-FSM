@@ -39,6 +39,7 @@ int main(int argc, char **argv, char **env) {
 
     top->rst = 0; // Added line to to set to 0 to start counter
     top->en = vbdFlag();
+    vbdHex(2, (top->data_out >> 4) & 0xF); // Added line to display two digits
     vbdHex(1, top->data_out & 0xF);
     vbdBar(top->data_out & 0xFF); // mask data_out with 0xFF
     
